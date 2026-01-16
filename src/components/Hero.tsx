@@ -18,8 +18,7 @@ const Hero = ({
           <p className="font-body text-xs tracking-[0.4em] uppercase text-primary mb-6 opacity-0 animate-slide-up" style={{
           animationDelay: "0.3s"
         }}>
-            Artisanal Jewelry
-          </p>
+        </p>
           
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-foreground mb-8 opacity-0 animate-slide-up" style={{
           animationDelay: "0.5s"
