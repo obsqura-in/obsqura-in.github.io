@@ -1,12 +1,44 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/Hero";
+import FeaturedCollection from "@/components/FeaturedCollection";
+import BrandStory from "@/components/BrandStory";
+import Footer from "@/components/Footer";
+
+import heroImage from "@/assets/hero-jewelry.jpg";
+import storyImage from "@/assets/story-craftsmanship.jpg";
+import ringImage from "@/assets/collection-ring.jpg";
+import necklaceImage from "@/assets/collection-necklace.jpg";
+import earringsImage from "@/assets/collection-earrings.jpg";
+
+const collectionItems = [
+  {
+    id: 1,
+    name: "Midnight Obsidian Ring",
+    category: "Rings",
+    image: ringImage,
+  },
+  {
+    id: 2,
+    name: "Serpentine Pendant",
+    category: "Necklaces",
+    image: necklaceImage,
+  },
+  {
+    id: 3,
+    name: "Luna Drop Earrings",
+    category: "Earrings",
+    image: earringsImage,
+  },
+];
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <Hero heroImage={heroImage} />
+      <FeaturedCollection items={collectionItems} />
+      <BrandStory storyImage={storyImage} />
+      <Footer />
     </div>
   );
 };

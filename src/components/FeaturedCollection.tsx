@@ -1,0 +1,75 @@
+import { Button } from "@/components/ui/button";
+
+interface CollectionItem {
+  id: number;
+  name: string;
+  category: string;
+  image: string;
+}
+
+interface FeaturedCollectionProps {
+  items: CollectionItem[];
+}
+
+const FeaturedCollection = ({ items }: FeaturedCollectionProps) => {
+  return (
+    <section id="collections" className="py-24 lg:py-32 bg-background">
+      <div className="container mx-auto px-6 lg:px-12">
+        {/* Section Header */}
+        <div className="text-center mb-16 lg:mb-24">
+          <p className="font-body text-xs tracking-[0.4em] uppercase text-primary mb-4">
+            Curated Selection
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-foreground">
+            Featured <span className="italic">Pieces</span>
+          </h2>
+        </div>
+
+        {/* Collection Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          {items.map((item, index) => (
+            <div
+              key={item.id}
+              className="group cursor-pointer"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden bg-card mb-6 hover-glow">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Hover Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <Button variant="hero" size="sm" className="w-full">
+                    View Details
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">
+                  {item.category}
+                </p>
+                <h3 className="font-display text-xl text-foreground group-hover:text-primary transition-colors duration-300">
+                  {item.name}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* View All Button */}
+        <div className="text-center mt-16">
+          <Button variant="luxe" size="xl">
+            View All Collections
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedCollection;
