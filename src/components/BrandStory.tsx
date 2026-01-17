@@ -24,8 +24,7 @@ const BrandStory = ({
               Our Philosophy
             </p>
             
-            <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-8">Crafted to make you feel
-Shadows & Light<br />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-8">Crafted to make you feel <br />
               <span className="italic text-gradient-gold">Confident, Composed & Elegant.     </span>
             </h2>
             
