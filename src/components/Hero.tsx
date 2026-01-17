@@ -18,7 +18,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 lg:px-12 flex items-end justify-center pb-32">
+      <div className="absolute bottom-12 left-0 right-0 z-10 flex justify-center">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-slide-up" style={{
           animationDelay: "0.5s"
         }}>
