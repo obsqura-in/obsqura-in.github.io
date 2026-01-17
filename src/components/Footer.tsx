@@ -8,9 +8,12 @@ const Footer = () => {
             <h3 className="font-display text-2xl tracking-[0.3em] text-foreground mb-6">
               OBSQURA
             </h3>
-            <p className="font-body text-muted-foreground max-w-sm leading-relaxed">
-              Where mystery meets elegance. Handcrafted luxury jewelry for those 
-              who appreciate the beauty in the obscure.
+            <p className="font-body max-w-sm leading-relaxed text-secondary-foreground">
+              Obsqura was born from a desire to create jewelry that feels personal, not ordinary.  In a world of repetitive designs, we chose to offer variety that carries depth, intention, and quiet luxury.  
+ 
+ 
+ 
+
             </p>
           </div>
 
