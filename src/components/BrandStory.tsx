@@ -25,7 +25,7 @@ const BrandStory = ({
             </p>
             
             <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-8">Crafted to make you feel <br />
-              <span className="italic text-gradient-gold">Confident, Composed & Elegant.     </span>
+              <span className="italic text-gradient-gold font-serif text-right">Confident, Composed & Effortlessly Elegant.     </span>
             </h2>
             
             <div className="space-y-6 text-muted-foreground font-body leading-relaxed">
