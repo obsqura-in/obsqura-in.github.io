@@ -40,14 +40,14 @@ const FeaturedCollection = ({ items }: FeaturedCollectionProps) => {
         </div>
 
         {/* Collection Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
           {items.map((item, index) => (
             <div
               key={item.id}
               className="group cursor-pointer opacity-0 animate-slide-up"
-              style={{ animationDelay: `${0.2 + index * 0.15}s` }}
+              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
-              <div className="relative aspect-[3/4] overflow-hidden bg-card mb-6 hover-glow">
+              <div className="relative aspect-[3/4] overflow-hidden bg-card mb-4 hover-glow">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -57,10 +57,10 @@ const FeaturedCollection = ({ items }: FeaturedCollectionProps) => {
               </div>
               
               <div className="text-center">
-                <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 transition-colors duration-500">
+                <p className="font-body text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1 transition-colors duration-500">
                   {item.category}
                 </p>
-                <h3 className="font-display text-xl text-foreground group-hover:text-primary transition-colors duration-500 ease-elegant mb-4">
+                <h3 className="font-display text-sm md:text-base text-foreground group-hover:text-primary transition-colors duration-500 ease-elegant mb-3">
                   {item.name}
                 </h3>
                 <Button
