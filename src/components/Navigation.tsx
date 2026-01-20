@@ -55,7 +55,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1.5 font-display text-2xl tracking-[0.3em] text-foreground hover:text-primary transition-colors duration-500">
             OBSQURA
-            <img src={obsquraLogo} alt="OBSQURA Logo" className="h-6 w-auto" />
+            <img src={obsquraLogo} alt="OBSQURA Logo" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
