@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Sparkles, RefreshCw, ShoppingBag } from "lucide-react";
+import { Send, Sparkles, RefreshCw, ShoppingBag, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useCart } from "@/contexts/CartContext";
+import { useWishlist } from "@/contexts/WishlistContext";
 
 import categoryRings from "@/assets/category-rings.jpg";
 import categoryNecklaces from "@/assets/category-necklaces.jpg";
@@ -45,12 +46,24 @@ const suggestedPrompts = [
   "Recommend jewelry for my wedding day",
 ];
 
+// Simple hash function for generating unique IDs
+const generateProductId = (name: string, category: string): number => {
+  const str = `${name}-${category}`;
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+};
 const AIMode = () => {
   const [userInput, setUserInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [recommendations, setRecommendations] = useState<Recommendations | null>(null);
   const [lastQuery, setLastQuery] = useState("");
   const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   const fetchRecommendations = async (query: string) => {
     setIsLoading(true);
@@ -110,15 +123,32 @@ const AIMode = () => {
     setLastQuery("");
   };
 
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = (product: Product, productId: number) => {
     addToCart({
-      id: Date.now(),
+      id: productId,
       name: product.name,
       category: product.category,
       price: product.price,
       image: categoryImages[product.category] || categoryRings,
     });
     toast.success(`${product.name} added to cart`);
+  };
+
+  const handleToggleWishlist = (product: Product, productId: number) => {
+    if (isInWishlist(productId)) {
+      removeFromWishlist(productId);
+      toast.success(`${product.name} removed from wishlist`);
+    } else {
+      addToWishlist({
+        id: productId,
+        name: product.name,
+        category: product.category,
+        price: product.price,
+        image: categoryImages[product.category] || categoryRings,
+        reason: product.reason,
+      });
+      toast.success(`${product.name} added to wishlist`);
+    }
   };
 
   return (
@@ -246,56 +276,73 @@ const AIMode = () => {
 
                   {/* Product Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {recommendations.products.map((product, index) => (
-                      <div
-                        key={index}
-                        className="group bg-card border border-border/50 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-xl"
-                        style={{ animationDelay: `${index * 0.1}s` }}
-                      >
-                        {/* Product Image */}
-                        <div className="relative aspect-square overflow-hidden">
-                          <img
-                            src={categoryImages[product.category] || categoryRings}
-                            alt={product.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          
-                          {/* Category Badge */}
-                          <div className="absolute top-4 left-4">
-                            <span className="px-3 py-1 text-xs font-body uppercase tracking-wider bg-background/90 backdrop-blur-sm rounded-full text-foreground">
-                              {product.category}
-                            </span>
+                    {recommendations.products.map((product, index) => {
+                      const productId = generateProductId(product.name, product.category);
+                      return (
+                        <div
+                          key={index}
+                          className="group bg-card border border-border/50 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-xl"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          {/* Product Image */}
+                          <div className="relative aspect-square overflow-hidden">
+                            <img
+                              src={categoryImages[product.category] || categoryRings}
+                              alt={product.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            
+                            {/* Category Badge */}
+                            <div className="absolute top-4 left-4">
+                              <span className="px-3 py-1 text-xs font-body uppercase tracking-wider bg-background/90 backdrop-blur-sm rounded-full text-foreground">
+                                {product.category}
+                              </span>
+                            </div>
+
+                            {/* Wishlist Button */}
+                            <button
+                              onClick={() => handleToggleWishlist(product, productId)}
+                              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-primary hover:text-primary-foreground group/heart"
+                            >
+                              <Heart 
+                                className={`w-5 h-5 transition-all duration-300 ${
+                                  isInWishlist(productId) 
+                                    ? 'fill-primary text-primary group-hover/heart:fill-primary-foreground group-hover/heart:text-primary-foreground' 
+                                    : 'text-muted-foreground group-hover/heart:text-primary-foreground'
+                                }`} 
+                              />
+                            </button>
+
+                            {/* Quick Add Button */}
+                            <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                              <Button
+                                onClick={() => handleAddToCart(product, productId)}
+                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                              >
+                                <ShoppingBag className="w-4 h-4 mr-2" />
+                                Add to Cart
+                              </Button>
+                            </div>
                           </div>
 
-                          {/* Quick Add Button */}
-                          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                            <Button
-                              onClick={() => handleAddToCart(product)}
-                              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                            >
-                              <ShoppingBag className="w-4 h-4 mr-2" />
-                              Add to Cart
-                            </Button>
+                          {/* Product Info */}
+                          <div className="p-5">
+                            <h3 className="font-display text-lg text-foreground mb-1">{product.name}</h3>
+                            <p className="text-sm text-muted-foreground font-body mb-3 line-clamp-2">{product.reason}</p>
+                            <div className="flex items-center justify-between">
+                              <span className="font-display text-lg text-primary">₹{product.price.toLocaleString()}</span>
+                              <Link
+                                to={`/collections/${product.category}`}
+                                className="text-xs font-body uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+                              >
+                                View Collection →
+                              </Link>
+                            </div>
                           </div>
                         </div>
-
-                        {/* Product Info */}
-                        <div className="p-5">
-                          <h3 className="font-display text-lg text-foreground mb-1">{product.name}</h3>
-                          <p className="text-sm text-muted-foreground font-body mb-3 line-clamp-2">{product.reason}</p>
-                          <div className="flex items-center justify-between">
-                            <span className="font-display text-lg text-primary">₹{product.price.toLocaleString()}</span>
-                            <Link
-                              to={`/collections/${product.category}`}
-                              className="text-xs font-body uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
-                            >
-                              View Collection →
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   {/* Try Again */}
