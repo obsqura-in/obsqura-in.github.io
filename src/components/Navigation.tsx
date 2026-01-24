@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, LogOut } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import CartSheet from "@/components/CartSheet";
+import WishlistSheet from "@/components/WishlistSheet";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import obsquraLogo from "@/assets/obsqura-logo.png";
@@ -90,11 +91,13 @@ const Navigation = () => {
                 Logout
               </button>
             )}
+            <WishlistSheet />
             <CartSheet />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-3">
+            <WishlistSheet />
             <CartSheet />
             <button
               onClick={() => setIsOpen(!isOpen)}
