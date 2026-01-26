@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { User, Mail, Calendar, Package, Trash2, AlertTriangle } from "lucide-react";
+import { User, Mail, Calendar, Package, Trash2, AlertTriangle, LogOut } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -142,6 +142,23 @@ const Profile = () => {
                       {user.id.slice(0, 8)}...{user.id.slice(-4)}
                     </p>
                   </div>
+                </div>
+
+                <Separator className="my-4" />
+
+                <div className="flex justify-end">
+                  <Button 
+                    variant="outline" 
+                    onClick={async () => {
+                      await signOut();
+                      toast.success("You have been signed out.");
+                      navigate("/");
+                    }}
+                    className="gap-2"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Sign Out
+                  </Button>
                 </div>
 
                 {user.user_metadata?.full_name && (

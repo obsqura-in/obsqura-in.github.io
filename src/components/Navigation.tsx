@@ -82,15 +82,7 @@ const Navigation = () => {
                 </Link>
               )
             ))}
-            {user && (
-              <button
-                onClick={handleSignOut}
-                className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-500 link-underline flex items-center gap-2"
-              >
-                <LogOut size={14} />
-                Logout
-              </button>
-            )}
+            
             <WishlistSheet />
             <CartSheet />
           </div>
@@ -135,15 +127,7 @@ const Navigation = () => {
                   </Link>
                 )
               ))}
-              {user && (
-                <button
-                  onClick={handleSignOut}
-                  className="font-body text-sm tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-all duration-500 flex items-center gap-2"
-                >
-                  <LogOut size={14} />
-                  Logout
-                </button>
-              )}
+              
             </div>
           </div>
         </div>
