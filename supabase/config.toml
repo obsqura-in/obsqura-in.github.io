@@ -2,3 +2,6 @@ project_id = "ozwhtygzglgfddxnplbi"
 
 [functions.jewelry-ai]
 verify_jwt = false
+
+[functions.shiprocket]
+verify_jwt = false
