@@ -4,9 +4,7 @@ const Hero = () => {
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-60 scale-105">
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        
         
       </div>
 
@@ -15,14 +13,14 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-slide-up" style={{
         animationDelay: "0.5s"
       }}>
-          <button
-            onClick={() => {
-              const element = document.getElementById('collections');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-          >
+          <button onClick={() => {
+          const element = document.getElementById('collections');
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }}>
             <Button variant="hero" size="default" className="transition-all duration-500 ease-elegant hover:scale-105">
               Explore Collection
             </Button>
