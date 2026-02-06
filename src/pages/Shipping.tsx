@@ -60,7 +60,7 @@ const Shipping = () => {
               <section>
                 <h2 className="font-display text-2xl text-foreground mb-4">Packaging</h2>
                 <p>
-                  Every OBSQURA piece is carefully packaged in our signature gift box, ensuring your 
+                  Every EXQURA piece is carefully packaged in our signature gift box, ensuring your 
                   jewelry arrives in perfect condition. Each item is wrapped in protective material 
                   and placed in an elegant box suitable for gifting.
                 </p>

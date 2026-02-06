@@ -63,7 +63,7 @@ const collectionItems = [
   },
   {
     id: 8,
-    name: "Obsqura Signature Set",
+    name: "Exqura Signature Set",
     category: "Sets",
     image: necklaceImage,
     price: 7999,

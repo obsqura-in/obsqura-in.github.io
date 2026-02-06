@@ -109,7 +109,7 @@ const JewelleryCare = () => {
           <div className="max-w-2xl mx-auto mt-20 text-center">
             <div className="w-16 h-px bg-primary/50 mx-auto mb-8" />
             <p className="font-body text-sm text-muted-foreground leading-relaxed italic">
-              "Each piece of OBSQURA jewellery is crafted to be cherished. 
+              "Each piece of EXQURA jewellery is crafted to be cherished. 
               With mindful care, your treasures will retain their beauty for years to come."
             </p>
           </div>

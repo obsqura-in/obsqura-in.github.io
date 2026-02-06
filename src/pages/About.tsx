@@ -14,7 +14,7 @@ const About = () => {
               Our Story
             </p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-foreground">
-              About <span className="italic">OBSQURA</span>
+              About <span className="italic">EXQURA</span>
             </h1>
           </div>
 
@@ -22,7 +22,7 @@ const About = () => {
           <div className="max-w-3xl mx-auto">
             <div className="prose prose-invert mx-auto">
               <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
-                OBSQURA is a luxury jewelry brand that celebrates the beauty of mystery and elegance. 
+                EXQURA is a luxury jewelry brand that celebrates the beauty of mystery and elegance. 
                 Each piece in our collection is meticulously crafted to transcend time, telling stories 
                 of hidden beauty and timeless sophistication.
               </p>

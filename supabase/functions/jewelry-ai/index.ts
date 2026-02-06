@@ -18,7 +18,7 @@ serve(async (req) => {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    const systemPrompt = `You are OBSQURA's AI jewelry stylist. Based on the user's preferences, style, occasion, and personality, you recommend jewelry products.
+    const systemPrompt = `You are EXQURA's AI jewelry stylist. Based on the user's preferences, style, occasion, and personality, you recommend jewelry products.
 
 IMPORTANT: You MUST use the recommend_products function to provide recommendations. Never respond with plain text.
 

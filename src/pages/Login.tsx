@@ -80,7 +80,7 @@ const Login = () => {
             toast.error(error.message);
           }
         } else {
-          toast.success("Account created successfully! Welcome to OBSQURA.");
+          toast.success("Account created successfully! Welcome to EXQURA.");
           navigate("/");
         }
       }
@@ -128,7 +128,7 @@ const Login = () => {
             {/* Header */}
             <div className="text-center mb-12">
               <h1 className="font-display text-4xl md:text-5xl font-light text-foreground mb-4">
-                {isLogin ? "Welcome Back" : "Join OBSQURA"}
+                {isLogin ? "Welcome Back" : "Join EXQURA"}
               </h1>
               <p className="font-body text-muted-foreground">
                 {isLogin 

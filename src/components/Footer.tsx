@@ -7,10 +7,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <h3 className="font-display text-2xl tracking-[0.3em] text-foreground mb-6">
-              OBSQURA
+              EXQURA
             </h3>
             <p className="font-body max-w-sm leading-relaxed text-base text-secondary-foreground">
-              Obsqura was born from a desire to create jewelry that feels personal, not ordinary.  In a world of repetitive designs, we chose to offer variety that carries depth, intention, and quiet luxury.  
+              Exqura was born from a desire to create jewelry that feels personal, not ordinary.  In a world of repetitive designs, we chose to offer variety that carries depth, intention, and quiet luxury.  
  
  
  
@@ -60,7 +60,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-muted-foreground tracking-wider">© 2026 OBSQURA. All rights reserved.</p>
+          <p className="font-body text-xs text-muted-foreground tracking-wider">© 2026 EXQURA. All rights reserved.</p>
           <div className="flex items-center gap-8">
             <Link to="/privacy-policy" className="font-body text-xs text-muted-foreground hover:text-primary transition-colors duration-300">
               Privacy Policy

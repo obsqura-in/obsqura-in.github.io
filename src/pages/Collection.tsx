@@ -13,7 +13,7 @@ const categoryData: Record<string, { title: string; description: string }> = {
   bracelets: { title: "Bracelets", description: "Timeless elegance for your wrist" },
   earrings: { title: "Earrings", description: "Delicate whispers of luxury" },
   sets: { title: "Sets", description: "Curated collections of harmony" },
-  specials: { title: "Obsqura Specials", description: "Exclusive limited editions" },
+  specials: { title: "Exqura Specials", description: "Exclusive limited editions" },
 };
 
 // Sample products for each category

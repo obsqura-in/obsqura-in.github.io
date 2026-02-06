@@ -3,14 +3,14 @@ import Footer from "@/components/Footer";
 import ourStoryBg from "@/assets/our-story-bg.png";
 
 const storyLines = [
-  "Obsqura was born from a desire to create jewelry that feels personal, not ordinary.",
+  "Exqura was born from a desire to create jewelry that feels personal, not ordinary.",
   "In a world of repetitive designs, we chose to offer variety that carries depth, intention, and quiet luxury.",
   "Every piece is crafted to make you feel confident, composed, and effortlessly elegant.",
-  "From delicate rings to statement sets and Obsqura Specials, each collection tells its own story.",
+  "From delicate rings to statement sets and Exqura Specials, each collection tells its own story.",
   "Our designs balance minimalism with bold character, allowing beauty to speak without excess.",
-  "Obsqura represents affordable luxury, where refinement is accessible and never diluted.",
+  "Exqura represents affordable luxury, where refinement is accessible and never diluted.",
   "With thoughtful care, our jewelry is made to stay with you, holding its brilliance over time.",
-  "Obsqura is not about following trends, but about creating pieces that remain meaningful long after the moment passes.",
+  "Exqura is not about following trends, but about creating pieces that remain meaningful long after the moment passes.",
 ];
 
 const OurStory = () => {
