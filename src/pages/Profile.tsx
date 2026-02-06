@@ -40,7 +40,7 @@ const Profile = () => {
       
       // Note: Full account deletion requires a backend function with service role
       // For now, we sign out and show a message
-      toast.success("You have been signed out. Contact support@obsqura.com to complete account deletion.");
+      toast.success("You have been signed out. Contact support@exqura.com to complete account deletion.");
       navigate("/");
     } catch (error) {
       toast.error("Failed to process account deletion request.");

@@ -192,7 +192,7 @@ const AIMode = () => {
                       <Sparkles className="w-5 h-5 text-primary-foreground" />
                     </div>
                     <div>
-                      <h3 className="font-display text-lg text-foreground">OBSQURA Stylist</h3>
+                      <h3 className="font-display text-lg text-foreground">EXQURA Stylist</h3>
                       <p className="text-xs text-muted-foreground font-body">Describe your style, occasion, or mood</p>
                     </div>
                   </div>

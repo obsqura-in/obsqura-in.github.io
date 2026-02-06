@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
               <section>
                 <h2 className="font-display text-2xl text-foreground mb-4">Information We Collect</h2>
                 <p>
-                  At OBSQURA, we collect information you provide directly to us, such as when you create an account, 
+                  At EXQURA, we collect information you provide directly to us, such as when you create an account, 
                   make a purchase, subscribe to our newsletter, or contact us for support. This may include your name, 
                   email address, postal address, phone number, and payment information.
                 </p>

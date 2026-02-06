@@ -31,7 +31,7 @@ const categories = [{
   description: "Curated collections of harmony",
   image: categorySets
 }, {
-  name: "Obsqura Specials",
+  name: "Exqura Specials",
   slug: "specials",
   description: "Exclusive limited editions",
   image: categorySpecials

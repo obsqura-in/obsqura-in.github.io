@@ -24,7 +24,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="font-display text-2xl text-foreground mb-4">Acceptance of Terms</h2>
                 <p>
-                  By accessing and using the OBSQURA website and services, you accept and agree to be bound 
+                  By accessing and using the EXQURA website and services, you accept and agree to be bound 
                   by these Terms of Service. If you do not agree to these terms, please do not use our services.
                 </p>
               </section>
@@ -51,7 +51,7 @@ const TermsOfService = () => {
                 <h2 className="font-display text-2xl text-foreground mb-4">Intellectual Property</h2>
                 <p>
                   All content on this website, including text, graphics, logos, images, and software, is the 
-                  property of OBSQURA and is protected by copyright and intellectual property laws. You may not 
+                  property of EXQURA and is protected by copyright and intellectual property laws. You may not 
                   reproduce, distribute, or use any content without our prior written consent.
                 </p>
               </section>
@@ -68,7 +68,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="font-display text-2xl text-foreground mb-4">Limitation of Liability</h2>
                 <p>
-                  OBSQURA shall not be liable for any indirect, incidental, special, or consequential damages 
+                  EXQURA shall not be liable for any indirect, incidental, special, or consequential damages 
                   arising from your use of our services or products. Our total liability shall not exceed the 
                   amount paid for the product in question.
                 </p>
